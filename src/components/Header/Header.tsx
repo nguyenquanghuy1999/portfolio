@@ -2,7 +2,7 @@ import Logo from "./Logo";
 
 function Header() {
   return (
-    <div className="pb-[100px]">
+    <div className="pb-25">
       <Logo />
     </div>
   );
