@@ -1,8 +1,10 @@
+import Logo from "./Logo";
+
 function Header() {
-    return (
-        <>
-            <h1>Header</h1>
-        </>
-    )
+  return (
+    <div className="pb-[100px]">
+      <Logo />
+    </div>
+  );
 }
 export default Header;
