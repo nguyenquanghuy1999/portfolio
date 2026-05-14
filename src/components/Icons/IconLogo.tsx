@@ -6,7 +6,7 @@ type IconLogoProps = {
 export const IconLogo = ({ text, fill }: IconLogoProps) => {
   return (
     <svg
-      className="text-primary"
+      className="text-brand"
       width="75"
       height="75"
       viewBox="0 0 360 280"
