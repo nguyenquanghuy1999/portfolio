@@ -7,7 +7,7 @@ function Logo() {
         <IconLogo fill="var(--color-brand)" />
       </div>
       <div className="absolute mt-2 transition duration-300 hover:-translate-1">
-        <IconLogo text="A" fill="var(--color-surface)" />
+        <IconLogo text="A" fill="var(--color-bg)" />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import resume from "../../../assets/files/resume.pdf";
 const linkClass = `
   absolute inset-0
   rounded-sm border border-current
-  bg-surface text-brand
+  bg-bg text-brand
   text-center text-sm leading-9
   transition duration-300
   hover:-translate-1
