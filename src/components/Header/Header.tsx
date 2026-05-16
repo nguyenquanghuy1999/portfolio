@@ -1,4 +1,4 @@
-import { IconMenu } from "../Icons/IconMenu";
+import Sidebar from "./Sidebar";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import ResumeLink from "./ResumeLink";
@@ -12,7 +12,7 @@ function Header() {
         <ResumeLink />
       </div>
       <div className="desktop:hidden block">
-        <IconMenu />
+        <Sidebar />
       </div>
     </div>
   );
