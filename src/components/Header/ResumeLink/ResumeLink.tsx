@@ -11,7 +11,7 @@ const linkClass = `
 
 function ResumeLink() {
   return (
-    <div className="desktop:ml-5 desktop:h-9.5 desktop:w-20.25 relative m-auto h-12.75 w-38.25 rounded-md">
+    <div className="desktop:ml-5 desktop:h-9.5 desktop:w-20.25 relative m-auto h-12.75 w-38.25 animate-[fadeInUp_0.3s_ease_0.8s_forwards] rounded-md opacity-0">
       <div className="bg-brand absolute inset-0 rounded-sm leading-1"></div>
       <a href={resume} target="_blank" className={linkClass}>
         Resume
