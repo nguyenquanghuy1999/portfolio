@@ -1,10 +1,11 @@
-export const IconMenu = () => {
+export const IconMenu = ({ className }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       width="30px"
       height="25px"
+      className={className}
       fill="var(--color-brand)"
     >
       <path

@@ -4,55 +4,58 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import Nav from "../Nav";
+import ResumeLink from "../ResumeLink";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Sidebar() {
+  const [open, setOpen] = useState(false);
+  const [isIconMenuActive, setIsIconMenuActive] = useState(false);
+
+  useEffect(() => {
+    if (isIconMenuActive) {
+      setTimeout(() => {
+        setIsIconMenuActive(false);
+      }, 400);
+    }
+  }, [isIconMenuActive]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const closeDrawerOnDesktop = () => setOpen(false);
+    media.addEventListener("change", closeDrawerOnDesktop);
+
+    return () => {
+      media.removeEventListener("change", closeDrawerOnDesktop);
+    };
+  }, []);
+
   return (
-    <Drawer direction="right">
-      <DrawerTrigger>
-        <IconMenu />
+    <Drawer open={open} onOpenChange={setOpen} direction="right">
+      <DrawerTrigger onClick={() => setOpen(true)}>
+        <IconMenu
+          className={cn(isIconMenuActive && "animate-[spin--360_400ms_ease]")}
+        />
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="bg-surface rounded-none! border-current">
         <DrawerHeader>
           <DrawerClose asChild>
             <Button
               variant="ghost"
               size="icon-lg"
-              className="text-brand ml-auto text-2xl"
+              className="text-brand relative top-3 right-1 ml-auto animate-[spin_350ms_linear] text-2xl duration-1000"
+              onClick={() => setIsIconMenuActive(true)}
             >
               X
             </Button>
           </DrawerClose>
-          <DrawerTitle>Move Goal</DrawerTitle>
-          <DrawerDescription>Set your daily activity goal.</DrawerDescription>
         </DrawerHeader>
-        <div className="no-scrollbar overflow-y-auto px-4">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <p
-              key={index}
-              className="style-lyra:mb-2 style-lyra:leading-relaxed mb-4 leading-normal"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          ))}
-        </div>
-        <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
+        <Nav />
+        <ResumeLink />
       </DrawerContent>
     </Drawer>
   );

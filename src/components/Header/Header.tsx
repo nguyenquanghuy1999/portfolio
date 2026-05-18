@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="bg-bg tablet:px-10 desktop:px-12.5 flex h-25 items-center justify-between px-6.25">
       <Logo />
-      <div className="desktop:flex hidden">
+      <div className="desktop:flex hidden items-center">
         <Nav />
         <ResumeLink />
       </div>
